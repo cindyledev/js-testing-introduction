@@ -4,6 +4,8 @@ const { generateText } = require('../util');
 test('should output name and age', () => {
   const text = generateText('Cindy', 28);
   expect(text).toBe('Cindy (28 years old)');
+  const text2 = generateText('Tony', 29);
+  expect(text2).toBe('Tony (29 years old)');
 });
 
 test('should output data-less text', () => {
