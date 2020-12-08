@@ -7,6 +7,9 @@ const initApp = () => {
   // Initializes the app, registers the button click listener
   const newUserButton = document.querySelector('#btnAddUser');
   newUserButton.addEventListener('click', addUser);
+
+  const PostTitleButton = document.querySelector('#getPostTitle');
+  PostTitleButton.addEventListener('click', printTitle);
 };
 
 const addUser = () => {
@@ -30,9 +33,6 @@ const addUser = () => {
   userList.appendChild(element);
 };
 
-// Start the app!
-initApp();
-
 const loadTitle = () => {
   return fetchData().then(extractedData => {
     const title = extractedData.title;
@@ -47,4 +47,5 @@ const printTitle = () => {
   });
 };
 
-button.addEventListener('click', printTitle);
+// Start the app!
+initApp();
