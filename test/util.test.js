@@ -32,4 +32,10 @@ test('should click around', async () => {
 
   const page = await browser.newPage();
   await page.goto('file:///C:/Users/lecin/Documents/repo/js-testing-introduction/index.html');
+
+  await page.click('input#name');
+  await page.type('input#name', 'Tony');
+  await page.click('input#age');
+  await page.type('input#age', '29');
+  await page.click('#btnAddUser');
 });
