@@ -48,5 +48,6 @@ exports.loadTitle = () => {
 exports.printTitle = () => {
   this.loadTitle().then(title => {
     console.log(title);
+    return title;
   });
 };
