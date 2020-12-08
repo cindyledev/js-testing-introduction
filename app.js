@@ -1,16 +1,4 @@
-const { checkAndGenerate, createElement } = require('./util');
-const { fetchData } = require('./http');
-
-const button = document.querySelector('button');
-
-const initApp = () => {
-  // Initializes the app, registers the button click listener
-  const newUserButton = document.querySelector('#btnAddUser');
-  newUserButton.addEventListener('click', addUser);
-
-  const PostTitleButton = document.querySelector('#getPostTitle');
-  PostTitleButton.addEventListener('click', printTitle);
-};
+const { checkAndGenerate, createElement, printTitle } = require('./util');
 
 const addUser = () => {
   // Fetches the user input, creates a new HTML element based on it
@@ -33,17 +21,14 @@ const addUser = () => {
   userList.appendChild(element);
 };
 
-const loadTitle = () => {
-  return fetchData().then(extractedData => {
-    const title = extractedData.title;
-    const transformedTitle = title.toUpperCase();
-    return transformedTitle;
-  });
-};
-
-const printTitle = () => {
-  loadTitle().then(title => {
-    console.log(title);
+const initApp = () => {
+  // Initializes the app, registers the button click listener
+  document.addEventListener('DOMContentLoaded', () => {
+    const newUserButton = document.querySelector('#btnAddUser');
+    newUserButton.addEventListener('click', addUser);
+  
+    const PostTitleButton = document.querySelector('#getPostTitle');
+    PostTitleButton.addEventListener('click', printTitle);
   });
 };
 
